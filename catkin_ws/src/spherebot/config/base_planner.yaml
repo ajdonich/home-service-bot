@@ -1,0 +1,38 @@
+NavfnROS:
+  allow_unknown: true # Allow crossing of "unknown space"
+  default_tolerance: 0.02 # tolerance on goal point for planner
+  visualize_potential: false
+
+TrajectoryPlannerROS:
+  # Robot config params
+  max_vel_x: 0.5
+  min_vel_x: 0.0
+  max_vel_theta: 2.0 
+  min_vel_theta: -2.0 
+  min_in_place_vel_theta: 0.0
+  acc_lim_x: 1.5
+  acc_lim_y: 1.5
+  acc_lim_theta: 3.2
+  escape_vel: -0.5
+  holonomic_robot: false # Enable strafing velocities (w/skid steer)
+
+  # Goal tolerance params
+  yaw_goal_tolerance: 0.05
+  xy_goal_tolerance: 0.10
+  latch_xy_goal_tolerance: false
+
+  # Forward sim params
+  sim_time: 1.0
+  sim_granularity: 0.025
+  angular_sim_granularity: 0.025
+  vx_samples: 5
+  vtheta_samples: 20
+  controller_frequency: 15.0
+  planner_frequency: 10.0
+
+  # Trajectory scoring params
+  meter_scoring: true
+  pdist_scale: 0.6 # max 5.0
+  gdist_scale: 0.8 
+  occdist_scale: 0.02
+  publish_cost_grid_pc: false

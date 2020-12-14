@@ -1,3 +1,19 @@
+# Local VSCode config
+.vscode/
+
+# Mac desktop services store
+.DS_Store/
+
+# Catkin build, etc
+catkin_ws/build
+catkin_ws/devel
+catkin_ws/.catkin_workspace
+catkin_ws/src/teleop_twist_keyboard
+catkin_ws/src/turtlebot
+catkin_ws/src/turtlebot_interactions
+catkin_ws/src/turtlebot_simulator
+catkin_ws/src/slam_gmapping
+
 # Prerequisites
 *.d
 

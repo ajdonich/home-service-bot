@@ -1,0 +1,12 @@
+# Coord frame/tf param
+global_frame: map
+
+# Map mgmt params
+static_map: true
+rolling_window: false
+track_unknown_space: true
+
+plugins:
+   - {name: static_layer,    type: "costmap_2d::StaticLayer"}
+   - {name: obstacle_layer,  type: "costmap_2d::VoxelLayer"}
+   - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
