@@ -92,15 +92,4 @@ int main(int argc, char **argv)
     return 0;
 }
 
-// marker.action = visualization_msgs::Marker::ADD;
-// marker.action = visualization_msgs::Marker::DELETE;
-
-// // Marker pose
-// marker.pose.position.x = 0;
-// marker.pose.position.y = 0;
-// marker.pose.position.z = 0;
-// marker.pose.orientation.x = 0.0;
-// marker.pose.orientation.y = 0.0;
-// marker.pose.orientation.z = 0.0;
-// marker.pose.orientation.w = 1.0;
 
