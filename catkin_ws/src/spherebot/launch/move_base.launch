@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <!-- Move Base -->
+    <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
+        <remap from="scan" to="hokuyo/laser_scan"/>
+        <param name="base_global_planner" value="navfn/NavfnROS" />
+        <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
+        
+        <!-- observation sources located in costmap_common.yaml -->
+        <rosparam file="$(find spherebot)/config/base_planner.yaml" command="load" />
+        <rosparam file="$(find spherebot)/config/costmap_common.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find spherebot)/config/costmap_common.yaml" command="load" ns="local_costmap" />
+        
+        <!-- global costmap (static map) -->
+        <rosparam file="$(find spherebot)/config/costmap_global.yaml" command="load" ns="global_costmap" />
+
+        <!-- local costmap (rolling window) -->
+        <rosparam file="$(find spherebot)/config/costmap_local.yaml" command="load" ns="local_costmap" />
+    </node>
+
+</launch>

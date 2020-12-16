@@ -2,10 +2,11 @@
 
 <launch>
 
-    <!-- Visualization -->
+    <!-- Visualization 
     <arg name="display_config" default="$(find spherebot)/config/mapping.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg display_config)" />
-
+    -->
+    
     <!-- Gmapping Node -->
     <node pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen" >
         <remap from="scan" to="hokuyo/laser_scan" />

@@ -1,0 +1,4 @@
+int32 action                    # visualization_msgs::Marker::ADD or DELETE
+geometry_msgs/Pose placement    # Required only for ADD action
+---
+string msg_feedback

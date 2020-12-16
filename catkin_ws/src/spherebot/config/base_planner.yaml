@@ -17,7 +17,7 @@ TrajectoryPlannerROS:
   holonomic_robot: false # Enable strafing velocities (w/skid steer)
 
   # Goal tolerance params
-  yaw_goal_tolerance: 0.05
+  yaw_goal_tolerance: 1.57
   xy_goal_tolerance: 0.10
   latch_xy_goal_tolerance: false
 

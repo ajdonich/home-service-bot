@@ -6,10 +6,11 @@
     <arg name="map_file" default="$(find spherebot)/maps/world_gmap.yaml" />
     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
-    <!-- Visualization -->
+    <!-- Visualization 
     <arg name="display_config" default="$(find spherebot)/config/localization.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg display_config)" />
-
+    -->
+    
     <!-- AMCL Node -->
     <node name="amcl" pkg="amcl" type="amcl" output="screen">
         <remap from="scan" to="hokuyo/laser_scan"/>
@@ -41,41 +42,5 @@
         <param name="odom_alpha4" value=".05"/>
         <param name="odom_alpha5" value=".04"/>
     </node>
-
-    <!-- Move Base -->
-    <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
-        <remap from="scan" to="hokuyo/laser_scan"/>
-        <param name="base_global_planner" value="navfn/NavfnROS" />
-        <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" /> -->
-        <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS" />
-        
-        <!-- observation sources located in costmap_common.yaml -->
-        <rosparam file="$(find spherebot)/config/base_planner.yaml" command="load" />
-        <rosparam file="$(find spherebot)/config/costmap_common.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find spherebot)/config/costmap_common.yaml" command="load" ns="local_costmap" />
-        
-        <!-- global costmap (static map) -->
-        <rosparam file="$(find spherebot)/config/costmap_global.yaml" command="load" ns="global_costmap" />
-
-        <!-- local costmap (rolling window) -->
-        <rosparam file="$(find spherebot)/config/costmap_local.yaml" command="load" ns="local_costmap" />
-    </node>
-
-    <!-- Move Base 
-    <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
-        <remap from="scan" to="hokuyo/laser_scan"/>
-        <param name="base_global_planner" value="navfn/NavfnROS" />
-        <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
-        
-        <param name="planner_frequency" value="10.0"/>
-        <param name="controller_frequency" value="15.0"/>
-
-        <rosparam file="$(find spherebot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-        <rosparam file="$(find spherebot)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
-        <rosparam file="$(find spherebot)/config/local_costmap_params.yaml" command="load" />
-        <rosparam file="$(find spherebot)/config/global_costmap_params.yaml" command="load" />
-        <rosparam file="$(find spherebot)/config/base_local_planner_params.yaml" command="load" />
-    </node>
-    -->
 
 </launch>
