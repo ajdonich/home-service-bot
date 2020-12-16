@@ -2,7 +2,7 @@
 
 # Launch
 xterm -fg lightgray -bg black -e "roslaunch spherebot spherebot_spawn.launch" &
-sleep 5
+sleep 15
 
 xterm -fg lightgray -bg black -e "roslaunch spherebot amcl_demo.launch" &
 sleep 5
@@ -15,7 +15,7 @@ xterm -fg lightgray -bg black -e "roslaunch spherebot move_base.launch" &
 sleep 5
 
 xterm -fg lightgray -bg black -e "rosrun add_markers add_markers" & 
-sleep 5
+sleep 15
 
 xterm -fg lightgray -bg black -e "rosrun pick_objects pick_objects" &
 sleep 5
