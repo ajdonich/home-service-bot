@@ -14,7 +14,7 @@ public:
       static AddMarkers single_instance; 
       return single_instance;
   }
-    
+  
   // Marker placement callback
   static bool handle_place_request(add_markers::PlaceMarker::Request& req,
                                    add_markers::PlaceMarker::Response& res) 
@@ -23,17 +23,17 @@ public:
     res.msg_feedback = ("Removing RViz object");
 
     if (req.action == visualization_msgs::Marker::ADD) {
-      ADD_MARKERS.marker.pose.position.x = req.placement.position.x;
-      ADD_MARKERS.marker.pose.position.y = req.placement.position.y;
-      ADD_MARKERS.marker.pose.position.z = req.placement.position.z;
-      ADD_MARKERS.marker.pose.orientation.x = req.placement.orientation.x;
-      ADD_MARKERS.marker.pose.orientation.y = req.placement.orientation.y;
-      ADD_MARKERS.marker.pose.orientation.z = req.placement.orientation.z;
-      ADD_MARKERS. marker.pose.orientation.w = req.placement.orientation.w;
+      ADD_MARKERS.marker.pose.position.x = req.pose.position.x;
+      ADD_MARKERS.marker.pose.position.y = req.pose.position.y;
+      ADD_MARKERS.marker.pose.position.z = req.pose.position.z;
+      ADD_MARKERS.marker.pose.orientation.x = req.pose.orientation.x;
+      ADD_MARKERS.marker.pose.orientation.y = req.pose.orientation.y;
+      ADD_MARKERS.marker.pose.orientation.z = req.pose.orientation.z;
+      ADD_MARKERS.marker.pose.orientation.w = req.pose.orientation.w;
 
       res.msg_feedback = ("Placing RViz object: (" + 
-                          std::to_string(req.placement.position.x) + ", " +
-                          std::to_string(req.placement.position.x) + ")");
+                          std::to_string(req.pose.position.x) + ", " +
+                          std::to_string(req.pose.position.y) + ")");
     }
 
     ADD_MARKERS.marker_publisher.publish(ADD_MARKERS.marker);

@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   roscpp
   visualization_msgs
+  move_base_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -117,7 +118,7 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(add_markers src/add_markers.cpp)
 target_link_libraries(add_markers ${catkin_LIBRARIES})
-
+add_dependencies(add_markers add_markers_generate_messages_cpp)
 
 #############
 ## Install ##

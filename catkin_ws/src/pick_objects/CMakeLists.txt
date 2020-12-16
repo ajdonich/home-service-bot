@@ -11,11 +11,11 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   move_base_msgs
   roscpp
+  add_markers
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -69,8 +69,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
-#   DEPENDENCIES
-#   move_base_msgs
+#  DEPENDENCIES
+#  std_msgs
 # )
 
 ################################################
@@ -116,6 +116,7 @@ catkin_package(
 include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(pick_objects src/pick_objects.cpp)
 target_link_libraries(pick_objects ${catkin_LIBRARIES})
+add_dependencies(pick_objects ${catkin_EXPORTED_TARGETS})
 
 #############
 ## Install ##
